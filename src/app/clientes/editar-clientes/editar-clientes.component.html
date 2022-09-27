@@ -1,0 +1,19 @@
+<form class="row g-3">
+    <div class="col-md-6">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" [(ngModel)]="cliente.nombre" class="form-control" id="nombre" name="nombre">
+    </div>
+    <div class="col-md-6">
+        <label for="cuit" class="form-label">Cuit</label>
+        <input type="text" [(ngModel)]="cliente.cuit"  class="form-control" id="cuit" name="cuit">
+    </div>
+    <div class="col-md-6">
+        <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+        <input type="date" [(ngModel)]="cliente.fechaNacimiento"  class="form-control" id="fechaNacimiento" name="fechaNacimiento">
+    </div>
+   
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" (click)="editarcliente(cliente)">Guardar</button>
+    </div>
+</form>

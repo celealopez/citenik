@@ -1,0 +1,20 @@
+<div class="container mt-5">
+    <table>
+        <tr>
+            <td>Nombre Completo</td>
+            <td><input type="text" [(ngModel)]="cliente.nombre" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>cuit</td>
+            <td><input type="text" [(ngModel)]="cliente.cuit" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>fecha de nacimiento</td>
+            <td><input type="date" [(ngModel)]="cliente.fechaNacimiento" class="form-control"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button class="btn btn-primary" (click)="agregarCliente(cliente)">Agregar</button></td>
+        </tr>
+    </table>
+</div>
