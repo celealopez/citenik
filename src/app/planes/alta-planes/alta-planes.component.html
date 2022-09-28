@@ -1,1 +1,70 @@
-<p>alta-planes works!</p>
+
+<div class="container mt-5">
+    <table>
+        <tr>
+            <td>Nombre</td>
+            <td><input type="text" [(ngModel)]="plan.nombre" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>tna</td>
+            <td><input type="number" [(ngModel)]="plan.tna" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>duracionMinimaCuotas</td>
+            <td><input type="number" [(ngModel)]="plan.duracionMinimaCuotas" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>duracionMaximaCuotas</td>
+            <td><input type="number" [(ngModel)]="plan.duracionMaximaCuotas" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>montoMinimo</td>
+            <td><input type="number" [(ngModel)]="plan.montoMinimo" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>montoMaximo</td>
+            <td><input type="number" [(ngModel)]="plan.montoMaximo" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>edadMaxima</td>
+            <td><input type="number" [(ngModel)]="plan.edadMaxima" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>precancelacion</td>
+            <select name="vigencia" [(ngModel)]="plan.vigencia">
+                <option value="1">se puede precancelar</option>
+                <option value="0">no se puede precancelar</option>
+                
+            </select>
+            
+            
+        </tr>
+        <tr>
+            <td>precancelacionCuotaMinima</td>
+            <td><input type="number" [(ngModel)]="plan.precancelacionCuotaMinima" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>precancelacionMulta</td>
+            <td><input type="number" [(ngModel)]="plan.precancelacionMulta" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>vigencia(activo)</td>
+            <select name="vigencia" [(ngModel)]="plan.vigencia">
+                <option value="1">activo</option>
+                <option value="0">inactivo</option>
+                
+            </select>
+            
+            
+        </tr>
+        <tr>
+            <td>costoAdministrativo</td>
+            <td><input type="number" [(ngModel)]="plan.costoAdministrativo" class="form-control"></td>
+            
+        </tr>
+        <tr>
+            <td></td>
+            <td><button class="btn btn-primary" (click)="agregarPlan(plan)">Agregar</button></td>
+        </tr>
+    </table>
+</div>

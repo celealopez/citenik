@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Plan } from '../model/plan';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 export class PlanService {
   listaPlanes: Plan[];
   uri: string = 'https://citenik-nodocker.azurewebsites.net/api/planes';
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,public router:Router) {
    this.listaPlanes = [];
   }
 
@@ -17,11 +18,39 @@ export class PlanService {
     return this.http.get<Plan[]>(this.uri);
   }
 
-  nuevoPlan(plan: Plan): Observable<any>{
-    return this.http.post(this.uri,plan,{
+  // nuevoPlan(plan: Plan): Observable<any>{
+  //   return this.http.post(this.uri,plan,{
+  //     headers: { 'Content-Type': 'application/json' },
+  //   })
+  // }
+
+
+  nuevoPlan(nuevoPlan: Plan): Observable<any> {
+    const plan = {
+      nombre:nuevoPlan.nombre,
+      tna:nuevoPlan.tna,
+      duracionMinimaCuotas:nuevoPlan.duracionMinimaCuotas,
+      duracionMaximaCuotas:nuevoPlan.duracionMaximaCuotas,
+      montoMinimo:nuevoPlan.montoMinimo,
+      montoMaximo:nuevoPlan.montoMaximo,
+      edadMaxima:nuevoPlan.edadMaxima,
+      precancelacion:nuevoPlan.precancelacion,
+      precancelacionCuotaMinima:nuevoPlan.precancelacionCuotaMinima,
+      precancelacionMulta:nuevoPlan.precancelacionMulta,
+      vigencia:nuevoPlan.vigencia,
+      costoAdministrativo:nuevoPlan.costoAdministrativo
+    };
+    console.log(plan);
+    return this.http.post(this.uri, plan, {
       headers: { 'Content-Type': 'application/json' },
-    })
+      
+    });
+    
   }
+
+
+
+
   obtenerPlan(id: string): Observable<Plan>{
     return this.http.get<Plan>(`${this.uri}/${id}`);
   }
@@ -30,5 +59,9 @@ export class PlanService {
   }
   eliminarPlan(id: string){
     return this.http.delete(`${this.uri}/${id}`)
+  }
+
+  cantidad() {
+    return this.listaPlanes.length;
   }
 }

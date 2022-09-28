@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Cliente } from '../../model/cliente';
 import { ClienteService } from '../../services/cliente.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-alta-clientes',
@@ -15,7 +16,7 @@ export class AltaClientesComponent implements OnInit {
   private subs: Subscription;
 
   @Output() onAgregar = new EventEmitter<Cliente>();
-  constructor(public clienteService: ClienteService) {
+  constructor(public clienteService: ClienteService,public router:Router) {
     this.cliente = new Cliente();
     this.subs = new Subscription();
   }
@@ -31,6 +32,7 @@ export class AltaClientesComponent implements OnInit {
       next: (result) => {
         console.log(result)
         alert("carga exitosa");
+        this.router.navigate(["/listaClientes"])
        
       },
       error: (err) => {

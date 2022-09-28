@@ -43,7 +43,8 @@ export class ListaPlanesComponent implements OnInit, OnDestroy {
       this.subs.add(
         this.planService.eliminarPlan(plan.id).subscribe({
           next: (result) => {
-            console.log(result);
+            alert('plan deshabilitado');
+            this.router.navigate(['listaPlanes']);
           },
           error: (err) => {
             console.log(err.status);
@@ -51,5 +52,12 @@ export class ListaPlanesComponent implements OnInit, OnDestroy {
         })
       );
     }
+  }
+
+
+  editar(id:string){
+    
+    this.router.navigate([`editarPlanes/${id}`]);
+   
   }
 }

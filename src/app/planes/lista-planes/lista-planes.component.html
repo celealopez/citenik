@@ -1,6 +1,6 @@
-<div class="listado container">
+<div class="listado mt-3 container">
     <br>
-    <table class="table">
+    <table  class="table ">
         <thead >
           <tr>
             <th scope="col">ID</th>
@@ -19,6 +19,13 @@
             <td>{{plan.tna}}</td>
             <td>{{plan.duracionMinimaCuotas}}</td>
             <td>{{plan.vigencia}}</td>
+            <td>
+                
+                <div><button (click)="borrarPlan(plan)" class="btn btn-danger ">deshabilitar</button></div>
+                <div><button  class="btn btn-success mt-2" (click)="editar(plan.id)">editar</button></div>
+                
+           
+           </td>
          </tr>
           
 

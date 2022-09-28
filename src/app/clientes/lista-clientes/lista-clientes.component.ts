@@ -55,7 +55,7 @@ export class ListaClientesComponent implements OnInit {
 
   editar(id:string){
     
-    this.router.navigate([`editar/${id}`]);
+    this.router.navigate([`editarClientes/${id}`]);
    
   }
 

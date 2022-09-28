@@ -11,6 +11,14 @@
         <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
         <input type="date" [(ngModel)]="cliente.fechaNacimiento"  class="form-control" id="fechaNacimiento" name="fechaNacimiento">
     </div>
+    <div class="col-md-6">
+        <label for="activo" class="form-label">Activo</label>
+        <select name="activo" [(ngModel)]="cliente.activo">
+            <option value="1">activo</option>
+            <option value="0">inactivo</option>
+            </select>
+    </div>
+    
    
 
     <div class="col-12">
