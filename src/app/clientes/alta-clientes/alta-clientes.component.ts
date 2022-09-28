@@ -29,10 +29,13 @@ export class AltaClientesComponent implements OnInit {
     
     this.subs.add(this.clienteService.nuevoCliente(cliente).subscribe({
       next: (result) => {
+        console.log(result)
         alert("carga exitosa");
+       
       },
       error: (err) => {
         alert("error al cargar el cliente");
+        console.log(err)
       },
     }));
 
@@ -42,6 +45,7 @@ export class AltaClientesComponent implements OnInit {
     this.cliente = new Cliente();
   }
 
+  
 
   
 }

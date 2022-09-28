@@ -17,8 +17,16 @@ export class ClienteService {
     return this.http.get<Cliente[]>(this.uri)
   }
 
-  nuevoCliente(cliente:Cliente): Observable<any>{
-    return this.http.post(this.uri,cliente)
+  nuevoCliente(nuevoCliente: Cliente): Observable<any> {
+    const cliente = {
+      nombre: nuevoCliente.nombre,
+      cuit: nuevoCliente.cuit,
+      FechaNacimiento: nuevoCliente.fechaNacimiento,
+    };
+    console.log(cliente);
+    return this.http.post(this.uri, cliente, {
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
   obtenerCliente(id: string): Observable<Cliente>{
@@ -34,7 +42,9 @@ export class ClienteService {
     return this.http.delete(`${this.uri}/${id}`)
   }
 
-
+  cantidad() {
+    return this.listaClientes.length;
+  }
 
 
 }

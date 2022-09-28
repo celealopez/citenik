@@ -25,6 +25,7 @@ export class ListaClientesComponent implements OnInit {
     this.subs.add(
       this.clienteService.getClientes().subscribe({
         next: (result) => {
+          
           this.clienteService.listaClientes = result;
         },
         error: () => {
@@ -54,7 +55,7 @@ export class ListaClientesComponent implements OnInit {
 
   editar(id:string){
     
-    this.router.navigate([`editarClientes/${id}`]);
+    this.router.navigate([`editar/${id}`]);
    
   }
 
